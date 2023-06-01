@@ -15,7 +15,7 @@ git clone <github repo url here>
 Now that you have created your own Github repo and have successfully cloned it to your repo, time to add this very repo as a submodule to your repo.
 
 ```
-git submodule add https://github.com/davorluc/pres_fw
+git submodule add https://github.com/davorluc/pres_fw.git
 ```
 
 The cloning might take a while, since the reveal.js repo is pretty big. I have removed some example files to make it a little lighter and changed some things inside the index.html file to make it Markdown compatible from the start.
@@ -24,10 +24,9 @@ The cloning might take a while, since the reveal.js repo is pretty big. I have r
 
 **## If you are the collaborator or aren't cloning the personal repo for the first time please read this part**
 
-After cloning your colleagues repo, you'll see there is a `pres_fw` folder, but it is emtpy. That's because this repo is a submodule of your repo (if you haven't worked with submodules yet, you can imagine it like a link). We have to tell Git explicitly to also clone the content of my `pres_fw` repo into your repo. We can do this with:
-
+If you were to clone your colleagues repo normally, the `pres_fw` directory would be empty. That's because we have to tell git explicitly to also clone submodules from a repo. You can modify the clone command as follows:
 ```
-git submodule update -i -r
+git clone --recursive https://github.con/davorluc/pres_fw.git
 ```
 
 Again, that'll take a while. Please sit back and relax. Now that everything is set up you can add your slides as a markdown file
@@ -36,7 +35,15 @@ Again, that'll take a while. Please sit back and relax. Now that everything is s
 
 ## Where to store your slides
 
-Inside the index.html, the location of the *slides.md* file is `../../slides.md`. So putting it in the same place as your own README.md file will be the correct choice.
+Inside the index.html, the location of the `slides.md` file is `../../slides.md`. It'll spit out an error if we just leave if like that. That's why I wrote a short python script `copyMarkdown.py` that copies the markdown file from `../..slides.md` to the current directory.
+
+For that, make sure you're in the `reveal.js` directory, then execute:
+
+```
+python3 copyMarkdown.py
+```
+
+After that everything should work as normal. Don't forget after you adjusted your slides.md file to always run the `copyMarkdown.py` script again to make sure reveal.js always reads the newest version of your slides.
 
 ---
 
@@ -46,7 +53,7 @@ Now that everything is set up and you have your Markdown slides ready, it's time
 
 ```
 cd pres_fw
-cd reveal.js-master
+cd reveal.js
 ```
 
 Then install all dependencies
@@ -59,7 +66,7 @@ And the last step:
 npm start
 ```
 
-From there you will receive a `http://localhost:8009` link in your terminal. Click on it to open the slides.
+From there you will receive a `http://localhost:8000` link in your terminal. Click on it to open the slides.
 
 ---
 
@@ -79,3 +86,7 @@ reveal.js offers a variety of built-in plugins. I have enabled the following:
 - RevealZoom
 
 To find out more, visit the [reveal.js documentation](https://revealjs.com)
+
+---
+
+I hope that this `README` has been informative enough for you to start using it. If questions arise or you notice some bugs, don't hesitate to get in touch with me or open a new issue under the issues tab. See ya around!
