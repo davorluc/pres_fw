@@ -40,6 +40,29 @@ Inside the index.html, the location of the *slides.md* file is `../../slides.md`
 
 ---
 
+## Starting a presentation
+
+Now that everything is set up and you have your Markdown slides ready, it's time to start the presentation. Inside your terminal navigate to the reveal.js-master directory with cd
+
+```
+cd pres_fw
+cd reveal.js-master
+```
+
+Then install all dependencies
+```
+npm install
+```
+
+And the last step:
+```
+npm start
+```
+
+From there you will receive a `http://localhost:8009` link in your terminal. Click on it to open the slides.
+
+---
+
 ## Slide separation
 
 I have used the `---` separator to let reveal.js know I want to start a regular new slide and the`-v-` separator to let reveal.js know i want to start a new vertical slide. If you don't know what the difference is, I'd highly recommend you look it up in the [reveal.js documentation](https://revealjs.com/vertical-slides/)
