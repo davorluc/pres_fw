@@ -33,17 +33,29 @@ Again, that'll take a while. Please sit back and relax. Now that everything is s
 
 ---
 
-## Where to store your slides
+## Where to store your presentation files
 
-Inside the index.html, the location of the `slides.md` file is `../../slides.md`. It'll spit out an error if we just leave if like that. That's why I wrote a short python script `copyMarkdown.py` that copies the markdown file from `../..slides.md` to the current directory.
+In your own repo, store your slides in a .md file: `your_repo/slides.md`. Make sure the .md file is called `slides.md`. If you have any images you want to use, create a new directory on the same level as your `slides.md` file. Insides your .md file refer to your files as following: `![some_text](./img/your_image.jpg)`.
 
-For that, make sure you're in the `reveal.js` directory, then execute:
+If we were to leave everything like that, the `reveal.js` library wouldn't load the content properly, because it can't reach files outside of its reveal.js directory. That's why I created the `prepFiles.py` python script. It copies the `yourrepo/slides.md` file and all images inside the `yourrepo/img/` directory into the `reveal.js` directory. Run it with the following command:
 
 ```
-python3 copyMarkdown.py
+python3 prepFiles.py
 ```
 
-After that everything should work as normal. Don't forget after you adjusted your slides.md file to always run the `copyMarkdown.py` script again to make sure reveal.js always reads the newest version of your slides.
+or
+
+```
+python prepFiles.py
+```
+
+or
+
+```
+py prepFiles.py
+```
+
+After that everything should work as normal. Don't forget after you adjusted your slides.md file or added new images to always run the `prepFiles.py` script again to make sure reveal.js always reads the newest version of your slides.
 
 ---
 
@@ -57,11 +69,13 @@ cd reveal.js
 ```
 
 Then install all dependencies
+
 ```
 npm install
 ```
 
 And the last step:
+
 ```
 npm start
 ```
