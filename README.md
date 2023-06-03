@@ -22,7 +22,7 @@ The cloning might take a while, since the reveal.js repo is pretty big. I have r
 
 ---
 
-**## If you are the collaborator or aren't cloning the personal repo for the first time please read this part**
+## If you are the collaborator or aren't cloning the personal repo for the first time please read this part
 
 If you were to clone your colleagues repo normally, the `pres_fw` directory would be empty. That's because we have to tell git explicitly to also clone submodules from a repo. You can modify the clone command as follows:
 ```
