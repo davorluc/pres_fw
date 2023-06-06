@@ -37,25 +37,13 @@ Again, that'll take a while. Please sit back and relax. Now that everything is s
 
 In your own repo, store your slides in a .md file: `your_repo/slides.md`. Make sure the .md file is called `slides.md`. If you have any images you want to use, create a new directory on the same level as your `slides.md` file. Insides your .md file refer to your files as following: `![some_text](./img/your_image.jpg)`.
 
-If we were to leave everything like that, the `reveal.js` library wouldn't load the content properly, because it can't reach files outside of its reveal.js directory. That's why I created the `prepFiles.py` python script. It copies the `yourrepo/slides.md` file and all images inside the `yourrepo/img/` directory into the `reveal.js` directory. Run it with the following command:
+If we were to leave everything like that, the `reveal.js` library wouldn't load the content properly, because it can't reach files outside of its reveal.js directory. That's why I created the `prepFiles.py` python script. It copies the `yourrepo/slides.md` file and all images inside the `yourrepo/img/` directory into the `reveal.js` directory. The great thing about this is, that it automatically runs on `npm start`. So that's all you need to do to copy the required files.
 
 ```
-python3 prepFiles.py
+npm start
 ```
 
-or
-
-```
-python prepFiles.py
-```
-
-or
-
-```
-py prepFiles.py
-```
-
-After that everything should work as normal. Don't forget after you adjusted your slides.md file or added new images to always run the `prepFiles.py` script again to make sure reveal.js always reads the newest version of your slides.
+After that everything should work as normal. Don't forget that when you make changes to your images or `slides.md` file, that you would need to run npm start again for it to refresh inside the `reveal.js` directory.
 
 ---
 
